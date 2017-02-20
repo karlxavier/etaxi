@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADuSql8wLBfvb8D6JP5cjN5rsEaPtHjG8" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple" rel="stylesheet" type="text/css">
   </head>
 
@@ -568,6 +569,20 @@
 			
 		</div> <!-- / END CONTAINER -->
 	</section>
+	<section class="newsletter">
+		<div class="container">
+			<h3 class="white-text wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">Stay in touch</h3> <!-- NEWSLETTER SECTION HEADING -->
+			<div class="sub-heading white-text wow fadeInRight animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
+				 Subscribe for Email Updates on Newsletters &amp; Offers.
+			</div> 
+			
+			<!-- SUBSCRIPTION FORM -->
+			<form action="#" class="subscription wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" role="form" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
+				<input type="email" placeholder="Enter email" class="form-control input-box">
+				<button class="btn btn-primary custom-button red-btn">Subscribe</button>
+			</form>
+		</div>
+	</section>
 	<section class="works" id="works">
 		<div class="container">
 			
@@ -899,8 +914,108 @@
 			
 		</div> <!-- / END CONTAINER -->
 	</section>
-
+	<section class="contact-us" id="contact">
+		<div class="container">
+			
+			<!-- SECTION HEADER -->
+		        <div class="section-header">
+				
+				<!-- SECTION TITLE -->
+				<h2 class="white-text">Get in touch</h2>
+				
+				<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+				<h6 class="white-text">
+					Have any question? Drop us a message. We will get back to you ASAP.
+				</h6>
+			</div>
+			<!-- / END SECTION HEADER -->
+			
+			<!-- CONTACT FORM-->
+			<div class="row">
+				<div class="col-md-6">
+					<form role="form" class="contact-form" id="contact-form">
+						<div class="wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
+							<div class="col-lg-6 col-sm-6">
+								<input type="text" name="name" placeholder="Your Name" class="form-control input-box" id="name">
+							</div>
+							<div class="col-lg-6 col-sm-6">
+								<input type="email" name="email" placeholder="Your Email" class="form-control input-box" id="email">
+							</div>
+						</div>
+						
+						<div class="col-md-12 wow fadeInRight animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
+							<textarea name="message" class="form-control textarea-box" placeholder="Your Message" id="message"></textarea>
+						</div>
+						<button class="btn btn-primary custom-button red-btn wow fadeInLeft animated animated" id="submit" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" type="submit" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">Send Message</button>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<div id="g-spot" style="height: 400px;"></div>
+				</div>
+			</div>
+			<!-- / END CONTACT FORM-->
+		</div> <!-- / END CONTAINER -->
+	</section>
     <%= yield %>
+  <footer>
+		<div class="container">
+			
+			<!-- COMPANY ADDRESS-->
+			<div class="col-md-5 company-details">
+				<div class="icon-top red-text">
+				    <i class="fa fa-map-marker" aria-hidden="true"></i>
+				</div>
+				P.O. Box 37037, Mussafah Industrial Area, Abu Dhabi, UAE
+			</div>
+			
+			<!-- COMPANY EMAIL-->
+			<div class="col-md-2 company-details">
+				<div class="icon-top green-text">
+					<i class="fa fa-folder-o" aria-hidden="true"></i>
+				</div>
+				 customer.service@etaxiuae.com
+			</div>
+			
+			<!-- COMPANY PHONE NUMBER -->
+			<div class="col-md-2 company-details">
+				<div class="icon-top blue-text">
+					<i class="fa fa-phone-square" aria-hidden="true"></i>
+				</div>
+				+971 2-5509511
+			</div>
+			
+			<!-- SOCIAL ICON AND COPYRIGHT -->
+			<div class="col-lg-3 col-sm-3 copyright">
+				<ul class="social">
+					<li><a href=""><i class="fa fa-facebook-official"></i></a></li>
+					<li><a href=""><i class="fa fa-twitter-square"></i></a></li>
+					<li><a href=""><i class="fa fa-linkedin-square"></i></a></li>
+					<li><a href=""><i class="fa fa-youtube"></i></a></li>					
+				</ul>
+				 ©2017 Emirates National Group
+			</div>
+		</div> <!-- / END CONTAINER -->
+	</footer>
+	<script type="text/javascript">
+		$(function() {
+
+				  var map;
+				  var myLatlng = new google.maps.LatLng(24.357350, 54.511057); // EMIRATES TAXI LAT AND LNG
+				  var myOptions = {
+				    zoom: 14,
+				    center: myLatlng,
+				    mapTypeId: google.maps.MapTypeId.ROADMAP
+				  }
+				  map = new google.maps.Map(document.getElementById("g-spot"), myOptions);
+				        var marker = new google.maps.Marker({
+				          position: myLatlng,
+				          map: map,
+				          title: 'Nia ko diri!'
+				        });
+				
+
+  		});
+	</script>
 
   </body>
 </html>
