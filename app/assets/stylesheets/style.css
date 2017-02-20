@@ -1491,3 +1491,26 @@ footer {
 	font-weight: 700;
 	margin-right: 5px;
 }
+
+.pixeden {
+    height: 63px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+}
+.pixeden.red:hover {
+	color: #e96656;
+}
+.pixeden.green:hover {
+	color: #20AA73;
+}
+.pixeden.blue:hover {
+	color: #3ab0e2;
+}
+.pixeden.yellow:hover {
+	color: #E7AC44;
+}
