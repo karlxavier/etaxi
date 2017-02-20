@@ -1,6 +1,4 @@
-  	<div class="preloader">
-	  <div class="status"></div>
-	</div>
+
 	<header id="home" class="header">
 		<div id="main-nav" class="navbar navbar-inverse bs-docs-nav fixed" role="banner">
 			<div class="container">
@@ -26,6 +24,28 @@
 					<li class=""><a href="#tour_guide">UAE Guide</a></li>
 					<li class=""><a href="#cars4sale">Cars for Sale</a></li>
 					<li class=""><a href="#contact">Contact</a></li>
+					<li class="">
+						<% if user_signed_in? %>
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> 
+                            	<span class="text-muted text-xs block">
+                            	My Account
+                            	<b class="caret">
+                            	</b>
+                            	</span> 
+                            </span> 
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+		                        <li><a href="profile.html">Profile</a></li>
+		                        <li><a href="contacts.html">Contacts</a></li>
+		                        <li><a href="mailbox.html">Mailbox</a></li>
+		                        <li class="divider"></li>
+		                        <li><%= link_to 'Logout', destroy_user_session_path %></li>
+		                    </ul>
+						<% else %>
+							<%= link_to 'Sign In', new_user_session_path, style: "color: #20AA73; font-weight: bold;" %>
+						<% end %>
+					</li>
 				</ul>
 				</nav>
 			</div>

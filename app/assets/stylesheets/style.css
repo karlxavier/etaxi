@@ -336,8 +336,8 @@ textarea:focus,
 input:focus {
     outline: 1 !important;
     outline-color: #e96656 !important;
-    -webkit-appearance:none;
-        border:none !important;
+    /*-webkit-appearance:none;*/
+        /*border:none !important;*/
   -webkit-box-shadow:none !important;
           box-shadow:none !important;
         }
@@ -409,7 +409,7 @@ input:focus {
 /*----  SECTION:  HOME > TOP BAR   ----*/
 .navbar {
 	background: #FFF;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	border: 0;
 	border-radius: 0 !important;
 	text-align: left;
@@ -435,7 +435,7 @@ input:focus {
 	margin-right: 0 !important;
 }
 .navbar-inverse .navbar-nav>li>a {
-	color: #404040;
+	/*color: #404040;*/
 	padding: 0;
 	line-height: 35px;
 }
@@ -446,7 +446,7 @@ input:focus {
 	padding-top: 23px;
 }
 .current a {
-	color: #e96656 !important;
+	/*color: #e96656 !important;*/
 	position: relative;
 	outline: none;
 }
