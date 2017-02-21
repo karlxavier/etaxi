@@ -1,5 +1,13 @@
 class Car < ApplicationRecord
+	belongs_to :car_brand
+	belongs_to :car_model
+	belongs_to :fuel_type
+	belongs_to :car_color
+	belongs_to :car_status
 	before_create :generate_ref_code
+
+	validates :year, :mileage, :price, presence: true
+	validates_numericality _of :year, :price, allow_nil: false
 
 	private
 
