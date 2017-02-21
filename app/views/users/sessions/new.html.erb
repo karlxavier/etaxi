@@ -6,13 +6,12 @@
       <%= image_tag 'logo.jpg', style: "width: 90%; margin: 0 auto; height: 50px; border-radius: 3px;" %>
       </div>
       <br>
-        <a href="#" id="facebook-login-global" data-store-cookie-session="false" data-reload="true" class="ui massive facebook fluid labeled icon button facebook-login mb5">
-            <i class="icon">
-                 <i class="fa fa-facebook fa-lg" style="margin-top: 10px;"></i>
-            </i>
-         
-            <span class="fontsize3">Continue with Facebook</span>
-        </a>
+        <%= link_to user_facebook_omniauth_authorize_path, class: "ui massive facebook fluid labeled icon button facebook-login mb5" do %>
+          <i class="icon">
+            <i class="fa fa-facebook fa-lg" style="margin-top: 10px;"></i>
+          </i>
+          <span class="fontsize3">Continue with Facebook</span>
+        <% end %>
         <div class="clearfix"></div>
         <div class="ui horizontal divider">
           or        
