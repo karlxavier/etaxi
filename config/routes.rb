@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 	root to: 'homes#index'
 
-	devise_for :admins
+	devise_for :admins, controllers: {registrations: "admins/registrations",
+									sessions: 'admins/sessions'
+									}
 	devise_for :users, controllers: {registrations: "users/registrations",
-																		sessions: 'users/sessions',
-																		omniauth_callbacks: 'users/omniauth_callbacks'} do
+									sessions: 'users/sessions',
+									omniauth_callbacks: 'users/omniauth_callbacks'
+									} do
 		get '/users/sign_out' => "devise/sessions#destroy"
 	end
 

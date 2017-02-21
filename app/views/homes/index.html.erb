@@ -1,4 +1,4 @@
-
+<%= stylesheet_link_tag    'application-index' %>
 	<header id="home" class="header">
 		<div id="main-nav" class="navbar navbar-inverse bs-docs-nav fixed" role="banner">
 			<div class="container">
@@ -9,12 +9,14 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<div class="navbar-brand" style="padding: 15px;">					
+					<div class="navbar-brand" style="padding: 15px;">	
+					<%= link_to root_path do %>				
 						<%= image_tag 'logo.jpg', alt: "eTaxi", style: "width: 220px; height: 41px;" %>
+					<% end %>
 					</div>
 				</div>
 				<nav class="navbar-collapse collapse" role="navigation" id="bs-navbar-collapse">
-				<ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
+				<ul class="nav navbar-nav navbar-right responsive-nav main-nav-list" style="font-family: Lato;">
 					<li class="current"><a href="#home">Home</a></li>
 					<li class=""><a href="#focus">Focus</a></li>
 					<li class=""><a href="#aboutus">About Us</a></li>
@@ -1310,3 +1312,62 @@
 			<!-- / END CONTACT FORM-->
 		</div> <!-- / END CONTAINER -->
 	</section>
+	  <footer>
+		<div class="container">
+			
+			<!-- COMPANY ADDRESS-->
+			<div class="col-md-5 company-details">
+				<div class="icon-top red-text">
+				    <i class="fa fa-map-marker" aria-hidden="true"></i>
+				</div>
+				P.O. Box 37037, Mussafah Industrial Area, Abu Dhabi, UAE
+			</div>
+			
+			<!-- COMPANY EMAIL-->
+			<div class="col-md-2 company-details">
+				<div class="icon-top green-text">
+					<i class="fa fa-folder-o" aria-hidden="true"></i>
+				</div>
+				 customer.service@etaxiuae.com
+			</div>
+			
+			<!-- COMPANY PHONE NUMBER -->
+			<div class="col-md-2 company-details">
+				<div class="icon-top blue-text">
+					<i class="fa fa-phone-square" aria-hidden="true"></i>
+				</div>
+				+971 2-5509511
+			</div>
+			
+			<!-- SOCIAL ICON AND COPYRIGHT -->
+			<div class="col-lg-3 col-sm-3 copyright">
+				<ul class="social">
+					<li><a href=""><i class="fa fa-facebook-official"></i></a></li>
+					<li><a href=""><i class="fa fa-twitter-square"></i></a></li>
+					<li><a href=""><i class="fa fa-linkedin-square"></i></a></li>
+					<li><a href=""><i class="fa fa-youtube"></i></a></li>					
+				</ul>
+				 ©2017 All Rights Reserved
+				 <br>
+				 <small><a href="https://www.enguae.com/">Emirates National Group</a> IT Team</small>
+			</div>
+		</div> <!-- / END CONTAINER -->
+	</footer>
+	<script type="text/javascript">
+		$(function() {
+
+				  var map;
+				  var myLatlng = new google.maps.LatLng(24.357350, 54.511057); // EMIRATES TAXI LAT AND LNG
+				  var myOptions = {
+				    zoom: 14,
+				    center: myLatlng,
+				    mapTypeId: google.maps.MapTypeId.ROADMAP
+				  }
+				  map = new google.maps.Map(document.getElementById("g-spot"), myOptions);
+				        var marker = new google.maps.Marker({
+				          position: myLatlng,
+				          map: map,
+				          title: 'Nia ko diri!'
+				        });
+  		});
+	</script>

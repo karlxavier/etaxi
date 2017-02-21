@@ -6,6 +6,7 @@ Rails.application.configure do
   config.assets.compile = true
   config.assets.digest = true
 
+  config.assets.precompile += %w( application-etaxi.css application-index.css  )
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers

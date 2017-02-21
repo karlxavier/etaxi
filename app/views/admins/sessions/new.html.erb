@@ -1,26 +1,41 @@
-<h2>Log in</h2>
+<div style="margin: 30px 0 100px 0; width: 100%; height: auto;">
+  <div class="middle-box text-center loginscreen   animated fadeInDown" style="background-color: white; padding: 15px;">
+    <div>
+      <div>
+      <%= image_tag 'logo.jpg', style: "width: 90%; margin: 0 auto; height: 50px; border-radius: 3px;" %>
+      </div>
+      <br>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'm-t'}) do |f| %>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>">
+            <a href="#" data-dismiss="alert" class="close">×</a>
+            <ul>
+              <li>
+                <%= value %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <div class="form-group">
+              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+          </div>
+          <div class="form-group">                 
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+          </div>
+          <div class="form-group">                 
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+          <%= f.submit "Sign in", class: "btn btn-primary block full-width m-b" %>
+          <br>
+          <p class="text-muted text-center"><small>Dont have an account yet?</small></p>
+          <%= link_to "Create New Account", new_admin_registration_path, class: "btn btn-default block full-width m-b" %>
+          <br>
+          <%= link_to "Home", root_path, class: "btn btn-default block full-width m-b" %>
+      <% end %>
+      <p class="m-t"> <small>Emirates National Group IT, Copyright © 2017</small> </p>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</div>
