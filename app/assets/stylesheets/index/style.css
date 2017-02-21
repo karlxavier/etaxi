@@ -1115,7 +1115,7 @@ width: -webkit-calc(100% / 2);
 -----------------------------------------*/
 
 .products {
-	background: url(../images/product-bg.png) 50% 0 repeat;
+	/*background: url(../images/product-bg.png) 50% 0 repeat;*/
 }
 .products .color-overlay {
 	background: rgba(39,144,176, 0.96);

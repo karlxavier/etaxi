@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag    'application-index' %>
+
 	<header id="home" class="header">
 		<div id="main-nav" class="navbar navbar-inverse bs-docs-nav fixed" role="banner">
 			<div class="container">
@@ -1306,7 +1307,7 @@
 					</form>
 				</div>
 				<div class="col-md-6">
-					<div id="g-spot" style="height: 400px;"></div>
+					<div id="g-spot" style="height: 400px; "></div>
 				</div>
 			</div>
 			<!-- / END CONTACT FORM-->
@@ -1354,8 +1355,7 @@
 		</div> <!-- / END CONTAINER -->
 	</footer>
 	<script type="text/javascript">
-		$(function() {
-
+		function initialize() {
 				  var map;
 				  var myLatlng = new google.maps.LatLng(24.357350, 54.511057); // EMIRATES TAXI LAT AND LNG
 				  var myOptions = {
@@ -1369,5 +1369,5 @@
 				          map: map,
 				          title: 'Nia ko diri!'
 				        });
-  		});
+  		}
 	</script>
