@@ -6,8 +6,10 @@ class Car < ApplicationRecord
 	belongs_to :car_status
 	before_create :generate_ref_code
 
-	validates :year, :mileage, :price, presence: true
-	validates_numericality _of :year, :price, allow_nil: false
+	validates :year, :mileage, :price, :primary_image, presence: true
+	validates_numericality_of :year, :price, allow_nil: false
+
+	mount_uploader :primary_image, PrimaryImageUploader
 
 	private
 

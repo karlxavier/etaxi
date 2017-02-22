@@ -1,0 +1,21 @@
+<% content_for :dashboard do %>
+  <%= content_for?(:new_car_dashboard) ? yield(:new_car_dashboard) : yield %>
+<% end %>
+<%= render template: "admins/cars/dashboard" %>
+
+<div id="page-wrapper" class="gray-bg" style="height: 100%">
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-9">
+	        <h2>Cars for Sale</h2>
+	        <ol class="breadcrumb">
+	            <li>
+	                <a href="#">Cars</a>
+	            </li>
+	            <li class="active">
+	                <strong>Add New</strong>
+	            </li>
+	        </ol>
+	    </div>
+	</div>
+	<%= render 'form' %>
+</div>
