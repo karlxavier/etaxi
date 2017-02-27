@@ -4,14 +4,22 @@ class Car < ApplicationRecord
 	belongs_to :fuel_type
 	belongs_to :car_color
 	belongs_to :car_status
+	has_many :car_images
+	# before_create :set_car_status_available
 	before_create :generate_ref_code
 
-	validates :year, :mileage, :price, :primary_image, presence: true
-	validates_numericality_of :year, :price, allow_nil: false
+	validates :year, :mileage, :price, presence: true
+	validates_numericality_of :year, allow_nil: false
+	validates :price, numericality: true
 
+	accepts_nested_attributes_for :car_images
 	mount_uploader :primary_image, PrimaryImageUploader
 
 	private
+
+	def set_car_status_available
+		self.car_status_id = 1
+	end
 
 	def generate_ref_code
 	    reference_code = 'ET'

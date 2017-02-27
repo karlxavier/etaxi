@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 	namespace :admins do
 		get '/', to: 'cars#dashboard', as: ''
 		resources :cars
+		resources :car_images, only: [:create, :destroy]
 	end
 
 end

@@ -17,4 +17,104 @@
 	        </ol>
 	    </div>
 	</div>
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+                        <h5>All available vehicles not being sold.</h5>
+                    </div>
+                    <div class="ibox-content">
+                    	<div class="table-responsive">
+                    		<div class="project-list">
+                    			<table class="table table-striped table-bordered table-hover dataTables-example dataTable dtr-inline" id="cars-table" role="grid">
+	                    			<thead>
+	                    				<tr role="row">
+		                    				<th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 186px;">
+		                    					Ref. No.
+	                                        </th>
+	                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 186px;">
+		                    					Price
+	                                        </th>
+	                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 186px;">
+		                    					Brand
+	                                        </th>
+	                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 186px;">
+		                    					Model
+	                                        </th>
+	                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 186px;">
+		                    					Mileage
+	                                        </th>
+	                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 186px;">
+		                    					Uploaded At
+	                                        </th>
+	                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 186px;">
+		                    					Engine
+	                                        </th>
+	                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 86px;">
+		                    					Action
+	                                        </th>
+	                    				</tr>
+	                    			</thead>
+	                    			<tbody>
+	                    				<% @cars.each do |car| %>
+		                    				<tr role="row"> 
+		                    					<td class="gradeA">
+	                                                <strong class="text-warning"><h4><%= car.reference_code %></h4></strong>
+	                                            </td>
+	                                            <td class="gradeA">
+	                                                <strong><%= car.price %></strong>
+	                                            </td>
+	                                            <td class="gradeA">
+	                                                <strong><%= car.car_brand.name %></strong>
+	                                            </td>
+	                                            <td class="gradeA">
+	                                                <strong><%= car.car_model.name %></strong>
+	                                            </td>
+	                                            <td class="gradeA">
+	                                                <strong><%= car.mileage %></strong>
+	                                            </td>
+	                                            <td class="gradeA">
+	                                                <strong><%= car.created_at.strftime("%d/%m/%Y") %></strong>
+	                                            </td>
+	                                            <td class="gradeA">
+	                                                <strong><%= car.engine %></strong>
+	                                            </td>
+	                                            <td class="gradeA">
+	                                            	<%= link_to 'Edit', edit_admins_car_path(car), class: "btn btn-outline btn-default" %>
+	                                            </td>
+	                                        </tr>
+	                    				<% end %>
+	                    			</tbody>
+                    			</table>
+                    		</div>
+                    	</div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+    <script type="text/javascript">
+        $('#cars-table').DataTable({
+          responsive: true,
+          pageLength: 25,
+            responsive: true,
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [
+                { extend: 'copy'},
+                {extend: 'csv'},
+                {extend: 'excel', title: 'Emirates Taxi - For Sale Cars'},
+                {extend: 'pdf', title: 'Emirates Taxi - For Sale Cars'},
+                {extend: 'print',
+                 customize: function (win){
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '10px');
+                        $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                }
+                }
+            ]
+        });
+    </script>

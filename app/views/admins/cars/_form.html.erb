@@ -1,117 +1,136 @@
 	<div class="wrapper wrapper-content animated fadeInRight ecommerce">
 		<%= form_for [:admins, @car] do |f| %>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="tabs-container">
-					<div class="nav nav-tabs">
-						<ul class="nav nav-tabs">
-							<li class="active">
-								<a data-toggle="tab" href="#tab-1" aria-expanded="true"> 
-									Car info
-								</a>
-							</li>
-							<li class="">
-								<a data-toggle="tab" href="#tab-2" aria-expanded="false"> 
-									Car Images
-								</a>
-							</li>
-						</ul>
-						<div class="tab-content">
-							<div id="tab-1" class="tab-pane active">
-								<div class="panel-body">
-									
-										<fieldset class="form-horizontal">
-											<div class="row">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="tabs-container">
+						<div class="nav nav-tabs">
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a data-toggle="tab" href="#tab-1" aria-expanded="true"> 
+										Car info
+									</a>
+								</li>
+								<li class="">
+									<a data-toggle="tab" href="#tab-2" aria-expanded="false"> 
+										Car Images
+									</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div id="tab-1" class="tab-pane active">
+									<div class="panel-body">
+										
+											<fieldset class="form-horizontal">
+												<div class="row">
 
-												<div class="col-lg-3">
-													<%= image_tag @restaurant.primary_image.url(:web, :full), style: "width: 100%; height: 190px; border-radius: 3px;" if @car.primary_image.present? %>
-			                		<br>
-			                		<%= f.file_field :primary_image, class: "form-control", style: "margin-bottom: 2px; margin-top: 10px;" %>
+													<div class="col-lg-3">
+														<%= image_tag @car.primary_image.url(:web, :full), style: "width: 100%; height: 190px; border-radius: 3px;" if @car.primary_image.present? %>
+							                		<br>
+							                		<%= f.file_field :primary_image, class: "form-control", style: "margin-bottom: 2px; margin-top: 10px;" %>
+													</div>
+													<div class="col-lg-9">
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Ref. Code:</label>
+															<div class="col-sm-10">
+																<label class="col-sm-2 control-label pull-left text-warning" style="text-align: left; padding-left: 0;">
+																	<%=  @car.reference_code %>
+																</label>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Sell Price:</label>
+															<div class="col-sm-10">
+																<%= f.text_field :price, class: 'form-control', placeholder: "Price in AED" %>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Brand:</label>
+							                              <div class="col-sm-10">
+							                              	<%= f.collection_select :car_brand_id, CarBrand.all, :id, :name, {prompt: "Select a brand"}, {class: 'form-control'} %>
+							                              </div>
+							                          </div>
+							                          <div class="form-group">
+															<label class="col-sm-2 control-label">Model:</label>
+															<div class="col-sm-10">
+																<%= f.collection_select :car_model_id, CarModel.all, :id, :name, {prompt: "Select a model"}, {class: 'form-control'} %>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Car Color:</label>
+															<div class="col-sm-10">
+																<%= f.collection_select :car_color_id, CarColor.all, :id, :name, {prompt: "Select a color"}, {class: 'form-control'} %>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Year:</label>
+															<div class="col-sm-10">
+																<%= f.text_field :year, class: 'form-control', placeholder: "Model Year" %>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Mileage:</label>
+															<div class="col-sm-10">
+																<%= f.text_field :mileage, class: 'form-control', placeholder: "Current car mileage" %>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Power:</label>
+															<div class="col-sm-10">
+																<%= f.text_field :power, class: 'form-control', placeholder: "Power" %>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Engine:</label>
+															<div class="col-sm-10">
+																<%= f.text_field :engine, class: 'form-control', placeholder: "Car Engine" %>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="col-sm-2 control-label">Fuel Type:</label>
+															<div class="col-sm-10">
+																<%= f.collection_select :fuel_type_id, FuelType.all, :id, :name, {prompt: "Select a type"}, {class: 'form-control'} %>
+															</div>
+														</div>
+													</div>
+													
 												</div>
-												<div class="col-lg-9">
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Ref. Code:</label>
-														<div class="col-sm-10">
-															<label class="col-sm-2 control-label pull-left text-warning" style="text-align: left; padding-left: 0;">
-																TX-0001
-															</label>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Sell Price:</label>
-														<div class="col-sm-10">
-															<%= f.text_field :price, class: 'form-control', placeholder: "Price in AED" %>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Brand:</label>
-                              <div class="col-sm-10">
-                              	<%= f.collection_select :car_brand_id, CarBrand.all, :id, :name, {prompt: "Select a brand"}, {class: 'form-control'} %>
-                              </div>
-                          </div>
-                          <div class="form-group">
-														<label class="col-sm-2 control-label">Model:</label>
-														<div class="col-sm-10">
-															<%= f.collection_select :car_model_id, CarModel.all, :id, :name, {prompt: "Select a model"}, {class: 'form-control'} %>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Car Color:</label>
-														<div class="col-sm-10">
-															<%= f.collection_select :car_color_id, CarColor.all, :id, :name, {prompt: "Select a color"}, {class: 'form-control'} %>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Year:</label>
-														<div class="col-sm-10">
-															<%= f.text_field :year, class: 'form-control', placeholder: "Model Year" %>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Mileage:</label>
-														<div class="col-sm-10">
-															<%= f.text_field :mileage, class: 'form-control', placeholder: "Current car mileage" %>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Power:</label>
-														<div class="col-sm-10">
-															<%= f.text_field :power, class: 'form-control', placeholder: "Power" %>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Engine:</label>
-														<div class="col-sm-10">
-															<%= f.text_field :engine, class: 'form-control', placeholder: "Car Engine" %>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-sm-2 control-label">Fuel Type:</label>
-														<div class="col-sm-10">
-															<%= f.collection_select :fuel_type_id, FuelType.all, :id, :name, {prompt: "Select a type"}, {class: 'form-control'} %>
-														</div>
-													</div>
-												</div>
-												
-											</div>
-										</fieldset>
-									
+											</fieldset>
+										
+									</div>
 								</div>
-							</div>
-							<div id="tab-2" class="tab-pane">
-								<div class="panel-body">
-
+								<div id="tab-2" class="tab-pane">
+									<div class="panel-body">
+										<fieldset class="form-horizontal">
+			                				<div class="form-group">
+			                                    <%= file_field_tag "images[]", type: :file, multiple: true %>
+			                                </div>
+			                			</fieldset>
+			                			<br>
+				                		<div class="col-lg-12">
+				                			<div class="ibox float-e-margins">
+				                				<div class="ibox-content" style="border: none;">
+				                					<% if @car.car_images.exists? %>
+				                						<h2>Car Images</h2>
+					                					<div class="lightBoxGallery">
+					                						<% @car.car_images.each do |images| %>
+					                							<%= image_tag images.image.url(:web, :preview) %>
+					                						<% end %>
+					                					</div>
+				                					<% end %>
+				                				</div>
+				                			</div>
+				                		</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<br>
+					<%= button_tag(type: 'Submit', class: "col-lg-3 btn btn-primary") do %>
+			    	<i class="icon-ok icon-white"></i> Save
+			    <% end %> 
+			    <%= link_to 'Cancel', admins_cars_path, class: 'col-lg-3 btn btn-default', style: 'margin-left: 10px;' %>
 				</div>
-				<br>
-				<%= button_tag(type: 'Submit', class: "col-lg-3 btn btn-primary") do %>
-		    	<i class="icon-ok icon-white"></i> Save
-		    <% end %> 
-		    <%= link_to 'Cancel', admins_path, class: 'col-lg-3 btn btn-default', style: 'margin-left: 10px;' %>
 			</div>
-		</div>
 		<% end %>
 	</div>

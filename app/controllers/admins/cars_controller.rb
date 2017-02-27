@@ -3,6 +3,7 @@ class Admins::CarsController < ApplicationController
 	before_action :set_car, only: [:show, :edit, :update, :delete]
 
 	def index
+		@cars = Car.all
 	end
 
 	def show
@@ -14,12 +15,39 @@ class Admins::CarsController < ApplicationController
 
 	def create
 		@car = Car.new(car_params)
-
+		@car.car_status_id = 1
 		respond_to do |format|
 			if @car.save
-				format.html { redirect_to admins_path }
+				if params[:images]
+			        params[:images].each { |image|
+			         	@car.car_images.create(image: image)
+			        }
+			    end
+				format.html { redirect_to admins_cars_path }
 			else
+				@car.errors.full_messages.each do |e|
+					puts "-----------------------------------"
+					puts e
+				end
 				format.html { render 'new' }
+			end
+		end
+	end
+
+	def edit
+	end
+
+	def update
+		respond_to do |format|
+			if @car.update_attributes(car_params)
+				if params[:images]
+			        params[:images].each { |image|
+			         	@car.car_images.create(image: image)
+			        }
+			    end
+				format.html { redirect_to admins_cars_path }
+			else
+				format.html { render 'edit' }
 			end
 		end
 	end
