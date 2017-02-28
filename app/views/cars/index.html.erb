@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'application' %>
 <div class="cover-screen">
-	<header id="home" class="header">
+	<header id="home" class="header" style="margin-bottom: 30px;">
 		<div id="main-nav" class="navbar-sale navbar-inverse bs-docs-nav fixed" role="banner">
 			<div class="container">
 				<div class="navbar-header responsive-logo">
@@ -58,15 +58,18 @@
 					<div class="col-md-4">
 						<div class="ibox">
 	                        <div class="ibox-content product-box">
+	                        	<%= link_to car_path(car) do %>
 	                            <div class="product-imitation car-primary-image" style="background: url('<%= car.primary_image.url(:web, :full) %>'); height: 270px;">
 	                            </div>
 	                            <div class="product-desc" style="padding: 20px 0 0 0;">
 	                                <span class="product-price">
 	                                    AED <%= number_with_precision(car.price, :precision => 0, :delimiter => ',') %>
 	                                </span>
-	                                <a href="#" class="product-name" style="padding: 0 20px 15px 20px;">
+	                                <div class="product-name" style="padding: 0 20px 15px 20px;">
 	                                	<%= car.car_brand.name %> <%= car.car_model.name %>
-	                                </a>
+	                                	<small class="text-warning pull-right" style="font-size: 13px;"><%= car.reference_code %></small>
+	                                </div>
+	                            <% end %>
 	                                <div class="panel-footer contact-footer">
 						                <div class="row">
 						                    <div class="col-md-4 border-right"> 

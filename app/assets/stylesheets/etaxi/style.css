@@ -11,11 +11,11 @@
     overflow: scroll;
 }
 #main-nav.fixed {
-    position: fixed !important;
+    /*position: fixed !important;*/
     top: 0;
 }
 #main-nav {
-    position: absolute;
+    /*position: absolute;*/
     width: 100%;
     z-index: 1000;
     min-height: 75px;
