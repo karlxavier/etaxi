@@ -224,7 +224,7 @@ DEPENDENCIES
   devise
   figaro
   fog-aws
-  font-awesome-sass (~> 4.7.0)
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -234,7 +234,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.1)
-  sass-rails (~> 5.0)
+  sass-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
