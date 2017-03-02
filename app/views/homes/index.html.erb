@@ -927,345 +927,51 @@
 					<h6 class="white-text">
 						We offer lowest price for our second hand cars without neglecting cars quality.						
 					</h6>
-					<a href="#" class="btn btn-primary custom-button red-btn">Show More Cars</a>
+					<%= link_to 'Show More Cars', cars_path, class: "btn btn-primary custom-button red-btn" %>
 				</div>
 				<div class="row wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
-
-		      <div class="col-md-3">
-						<div class="item" style="background-image: url(<%= asset_path('cars4sale/car5.jpg') %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-							<div class="item-overlay">
-							</div>
-							<div class="item-content">
-								<div class="item-top-content">
-									<div class="item-top-content-inner">
-										<div class="item-product">
-											<div class="item-top-title">
-												<h5>Toyota</h5>  <!-- PRODUCT TITLE-->
-												<p class="subdescription">
-													Camry - 2013
-												</p>
+					<% @cars.each do |car| %>
+			      		<div class="col-md-3">
+							<div class="item" style="background-image: url(<%= car.primary_image.url(:web, :full) %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
+								<div class="item-overlay">
+								</div>
+								<div class="item-content">
+									<div class="item-top-content">
+										<div class="item-top-content-inner">
+											<div class="item-product">
+												<div class="item-top-title">
+													<h5><%= car.car_brand.name %></h5>  <!-- PRODUCT TITLE-->
+													<p class="subdescription">
+														<%= car.car_model.name %> - <%= car.year %>
+													</p>
+												</div>
 											</div>
-										</div>
-										<div class="item-product-price">
-											<span class="price-num green-text">15,000</span> 
-											<p class="subdescription">
-												26,000
-											</p>
-											<div class="old-price">
+											<div class="item-product-price">
+												<span class="price-num green-text">AED <%= number_with_precision(car.price, :precision => 0, :delimiter => ',') %></span> 
+												<p class="subdescription">
+													26,000
+												</p>
+												<div class="old-price">
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="item-add-content">
-									<div class="item-add-content-inner">
-										<div class="section">
-											<p>
-												Hurry and Buy now!
-											</p>
-										</div>
-										<div class="section">
-											<a href="#" class="btn btn-primary custom-button red-btn">Demo</a><br>
-											<a href="#" class="btn btn-primary custom-button green-btn">Buy</a>
+									<div class="item-add-content">
+										<div class="item-add-content-inner">
+											<div class="section">
+												<p>
+													Hurry and Buy now!
+												</p>
+											</div>
+											<div class="section">
+												<%= link_to 'More Details', car_path(car), class: "btn btn-primary custom-button red-btn" %>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="item" style="background-image: url(<%= asset_path('cars4sale/car4.jpg') %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-							<div class="item-overlay">
-							</div>
-							<div class="item-content">
-								<div class="item-top-content">
-									<div class="item-top-content-inner">
-										<div class="item-product">
-											<div class="item-top-title">
-												<h5>Toyota</h5>  <!-- PRODUCT TITLE-->
-												<p class="subdescription">
-													Camry - 2013
-												</p>
-											</div>
-										</div>
-										<div class="item-product-price">
-											<span class="price-num green-text">15,000</span> 
-											<p class="subdescription">
-												26,000
-											</p>
-											<div class="old-price">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item-add-content">
-									<div class="item-add-content-inner">
-										<div class="section">
-											<p>
-												Hurry and Buy now!
-											</p>
-										</div>
-										<div class="section">
-											<a href="#" class="btn btn-primary custom-button red-btn">Demo</a><br>
-											<a href="#" class="btn btn-primary custom-button green-btn">Buy</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="item" style="background-image: url(<%= asset_path('cars4sale/car4.jpg') %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-							<div class="item-overlay">
-							</div>
-							<div class="item-content">
-								<div class="item-top-content">
-									<div class="item-top-content-inner">
-										<div class="item-product">
-											<div class="item-top-title">
-												<h5>Toyota</h5>  <!-- PRODUCT TITLE-->
-												<p class="subdescription">
-													Camry - 2013
-												</p>
-											</div>
-										</div>
-										<div class="item-product-price">
-											<span class="price-num green-text">15,000</span> 
-											<p class="subdescription">
-												26,000
-											</p>
-											<div class="old-price">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item-add-content">
-									<div class="item-add-content-inner">
-										<div class="section">
-											<p>
-												Hurry and Buy now!
-											</p>
-										</div>
-										<div class="section">
-											<a href="#" class="btn btn-primary custom-button red-btn">Demo</a><br>
-											<a href="#" class="btn btn-primary custom-button green-btn">Buy</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="item" style="background-image: url(<%= asset_path('cars4sale/car4.jpg') %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-							<div class="item-overlay">
-							</div>
-							<div class="item-content">
-								<div class="item-top-content">
-									<div class="item-top-content-inner">
-										<div class="item-product">
-											<div class="item-top-title">
-												<h5>Toyota</h5>  <!-- PRODUCT TITLE-->
-												<p class="subdescription">
-													Camry - 2013
-												</p>
-											</div>
-										</div>
-										<div class="item-product-price">
-											<span class="price-num green-text">15,000</span> 
-											<p class="subdescription">
-												26,000
-											</p>
-											<div class="old-price">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item-add-content">
-									<div class="item-add-content-inner">
-										<div class="section">
-											<p>
-												Hurry and Buy now!
-											</p>
-										</div>
-										<div class="section">
-											<a href="#" class="btn btn-primary custom-button red-btn">Demo</a><br>
-											<a href="#" class="btn btn-primary custom-button green-btn">Buy</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="item" style="background-image: url(<%= asset_path('cars4sale/car4.jpg') %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-							<div class="item-overlay">
-							</div>
-							<div class="item-content">
-								<div class="item-top-content">
-									<div class="item-top-content-inner">
-										<div class="item-product">
-											<div class="item-top-title">
-												<h5>Toyota</h5>  <!-- PRODUCT TITLE-->
-												<p class="subdescription">
-													Camry - 2013
-												</p>
-											</div>
-										</div>
-										<div class="item-product-price">
-											<span class="price-num green-text">15,000</span> 
-											<p class="subdescription">
-												26,000
-											</p>
-											<div class="old-price">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item-add-content">
-									<div class="item-add-content-inner">
-										<div class="section">
-											<p>
-												Hurry and Buy now!
-											</p>
-										</div>
-										<div class="section">
-											<a href="#" class="btn btn-primary custom-button red-btn">Demo</a><br>
-											<a href="#" class="btn btn-primary custom-button green-btn">Buy</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="item" style="background-image: url(<%= asset_path('cars4sale/car4.jpg') %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-							<div class="item-overlay">
-							</div>
-							<div class="item-content">
-								<div class="item-top-content">
-									<div class="item-top-content-inner">
-										<div class="item-product">
-											<div class="item-top-title">
-												<h5>Toyota</h5>  <!-- PRODUCT TITLE-->
-												<p class="subdescription">
-													Camry - 2013
-												</p>
-											</div>
-										</div>
-										<div class="item-product-price">
-											<span class="price-num green-text">15,000</span> 
-											<p class="subdescription">
-												26,000
-											</p>
-											<div class="old-price">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item-add-content">
-									<div class="item-add-content-inner">
-										<div class="section">
-											<p>
-												Hurry and Buy now!
-											</p>
-										</div>
-										<div class="section">
-											<a href="#" class="btn btn-primary custom-button red-btn">Demo</a><br>
-											<a href="#" class="btn btn-primary custom-button green-btn">Buy</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="item" style="background-image: url(<%= asset_path('cars4sale/car4.jpg') %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-							<div class="item-overlay">
-							</div>
-							<div class="item-content">
-								<div class="item-top-content">
-									<div class="item-top-content-inner">
-										<div class="item-product">
-											<div class="item-top-title">
-												<h5>Toyota</h5>  <!-- PRODUCT TITLE-->
-												<p class="subdescription">
-													Camry - 2013
-												</p>
-											</div>
-										</div>
-										<div class="item-product-price">
-											<span class="price-num green-text">15,000</span> 
-											<p class="subdescription">
-												26,000
-											</p>
-											<div class="old-price">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item-add-content">
-									<div class="item-add-content-inner">
-										<div class="section">
-											<p>
-												Hurry and Buy now!
-											</p>
-										</div>
-										<div class="section">
-											<a href="#" class="btn btn-primary custom-button red-btn">Demo</a><br>
-											<a href="#" class="btn btn-primary custom-button green-btn">Buy</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="item" style="background-image: url(<%= asset_path('cars4sale/car4.jpg') %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-							<div class="item-overlay">
-							</div>
-							<div class="item-content">
-								<div class="item-top-content">
-									<div class="item-top-content-inner">
-										<div class="item-product">
-											<div class="item-top-title">
-												<h5>Toyota</h5>  <!-- PRODUCT TITLE-->
-												<p class="subdescription">
-													Camry - 2013
-												</p>
-											</div>
-										</div>
-										<div class="item-product-price">
-											<span class="price-num green-text">15,000</span> 
-											<p class="subdescription">
-												26,000
-											</p>
-											<div class="old-price">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item-add-content">
-									<div class="item-add-content-inner">
-										<div class="section">
-											<p>
-												Hurry and Buy now!
-											</p>
-										</div>
-										<div class="section">
-											<a href="#" class="btn btn-primary custom-button red-btn">Demo</a><br>
-											<a href="#" class="btn btn-primary custom-button green-btn">Buy</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<% end %>
 
 				</div>
 			</div>

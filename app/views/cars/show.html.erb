@@ -47,9 +47,12 @@
 	</header>
 	<section class="container features gray-bg" style="height: 100%">
 		<div class="row wrapper border-bottom white-bg page-heading">
-			<div class="col-lg-9">
-		        <h2>Car Details</h2>
+			<div class="col-lg-12" style="padding: 20px 0 0 20px;">
+				<%= link_to 'Show All Cars', cars_path, class: "btn btn-primary btn-sm pull-right" %>
+		        <h2 style="margin: 0;">Car Details</h2>
+		        
 		    </div>
+
 		</div>
 		<div class="wrapper wrapper-content animated fadeInRight" style="margin: 0 -15px 0 -15px;">
 			<div class="row">
@@ -60,10 +63,15 @@
                             <div class="row">
                                 <div class="col-md-5" style="padding-right: 30px;">
                                     <div class="car-images">
-                                    	<% @car.car_images.each do |image| %>
-	                                        <div class="image-imitation car-primary-image" style="background: url('<%= image.image.url(:web, :full) %>');">
-	                                        </div>
-                                        <% end %>
+                                    	<% if @car.car_images.exists? %>
+	                                    	<% @car.car_images.each do |image| %>
+		                                        <div class="image-imitation car-primary-image" style="background: url('<%= image.image.url(:web, :full) %>');">
+		                                        </div>
+	                                        <% end %>
+	                                    <% else %>
+	                                    	<div class="image-imitation car-primary-image" style="background: url('<%= @car.primary_image.url(:web, :full) %>');">
+		                                    </div>
+	                                    <% end %>
 		                            </div>
                                 </div>
                                 <div class="col-md-7" style="padding-left: 30px;">

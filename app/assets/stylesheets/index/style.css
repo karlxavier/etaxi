@@ -1229,11 +1229,11 @@ width: -webkit-calc(100% / 2);
 }
 /* ITEM DETAILS */
 .item-product {
-	width: 70%;
+	width: 50%;
 	float: left;
 }
 .item-product-price {
-	width: 30%;
+	width: 50%;
 	float: right;
 	text-align: right;
 }
