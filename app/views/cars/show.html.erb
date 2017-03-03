@@ -65,11 +65,11 @@
                                     <div class="car-images">
                                     	<% if @car.car_images.exists? %>
 	                                    	<% @car.car_images.each do |image| %>
-		                                        <div class="image-imitation car-primary-image" style="background: url('<%= image.image.url(:web, :full) %>');">
+		                                        <div class="image-imitation car-primary-image" style="background: url('<%= image.image.url(:web) %>');">
 		                                        </div>
 	                                        <% end %>
 	                                    <% else %>
-	                                    	<div class="image-imitation car-primary-image" style="background: url('<%= @car.primary_image.url(:web, :full) %>');">
+	                                    	<div class="image-imitation car-primary-image" style="background: url('<%= @car.primary_image.url(:web) %>');">
 		                                    </div>
 	                                    <% end %>
 		                            </div>

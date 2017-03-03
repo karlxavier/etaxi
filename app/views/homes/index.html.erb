@@ -932,7 +932,7 @@
 				<div class="row wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
 					<% @cars.each do |car| %>
 			      		<div class="col-md-3">
-							<div class="item" style="background-image: url(<%= car.primary_image.url(:web, :full) %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
+							<div class="item" style="background-image: url(<%= car.primary_image.url(:web) %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
 								<div class="item-overlay">
 								</div>
 								<div class="item-content">
