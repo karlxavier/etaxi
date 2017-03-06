@@ -15,10 +15,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # 'default_profile_resto.png' #rails will look at 'app/assets/images/default_avatar.png'
   # end
 
+  # version :web do
+  #   version :thumb    { process :resize_to_fit => [32, 32] }
+  #   version :preview  { process :resize_to_fit => [128, 128] }
+  #   version :full     { process :resize_to_fit => [1024, 768] }
+  # end
+
   version :web do
-    version :thumb    { process :resize_to_fit => [32, 32] }
-    version :preview  { process :resize_to_fit => [128, 128] }
-    version :full     { process :resize_to_fit => [1024, 768] }
+    process resize_to_fill: [295, 90]
   end
 
   def extension_white_list
