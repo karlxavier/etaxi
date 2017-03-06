@@ -28,21 +28,17 @@
 					<li class="">
 						<% if user_signed_in? %>
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> 
-                            	<span class="text-muted text-xs block">
-                            	My Account
-                            	<b class="caret">
-                            	</b>
-                            	</span> 
-                            </span> 
-                            </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-		                        <li><a href="profile.html">Profile</a></li>
-		                        <li><a href="contacts.html">Contacts</a></li>
-		                        <li><a href="mailbox.html">Mailbox</a></li>
-		                        <li class="divider"></li>
-		                        <li><%= link_to 'Logout', destroy_user_session_path %></li>
-		                    </ul>
+                <span class="clear"> 
+                	<span class="text-muted text-xs block">
+                	My Account
+                	<b class="caret">
+                	</b>
+                	</span> 
+                </span> 
+                </a>
+                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                  <li><%= link_to 'Logout', destroy_user_session_path %></li>
+              	</ul>
 						<% else %>
 							<%= link_to 'Sign In', new_user_session_path, style: "color: #20AA73; font-weight: bold;" %>
 						<% end %>
@@ -53,9 +49,9 @@
 		</div>
 		<div class="container">
 			<h1 class="intro">Always there because we are everywhere.</h1>
-			<div class="buttons inpage-scroll">
-				<a href="#cars4sale" class="btn btn-primary custom-button red-btn">For Sale Cars</a>
-				<a href="#subscribe" class="btn btn-primary custom-button green-btn">Subscribe</a>
+			<div class="buttons inpage-scroll">				
+				<%= link_to 'Cars for Sale', cars_path, class: "btn btn-primary custom-button red-btn" %>
+				<a href="#contact" class="btn btn-primary custom-button green-btn">Contact Us</a>
 			</div>
 
 		</div>
@@ -959,7 +955,7 @@
 		</div> <!-- / END CONTAINER -->
 	</footer>
 	<script type="text/javascript">
-		function initialize() {
+		function initializeMap() {
 				  var map;
 				  var myLatlng = new google.maps.LatLng(24.357350, 54.511057); // EMIRATES TAXI LAT AND LNG
 				  var myOptions = {
