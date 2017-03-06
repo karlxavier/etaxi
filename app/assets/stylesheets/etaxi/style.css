@@ -72,3 +72,35 @@
     padding-bottom: 8px;
     text-transform: uppercase;
 }
+/* ----------------------------------------*/
+/*   SECTION:  FOOTER                        */
+/* ----------------------------------------*/
+
+footer {
+    background: #272727;
+}
+.company-details {
+    color: #939393;
+    padding-top: 67px;
+    padding-bottom: 67px;
+}
+.company-details .icon-top {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.copyright {
+    padding-top: 60px;
+    padding-bottom: 68px;
+    background: #171717;
+}
+.social li {
+    display: inline-block;
+    margin: 5px;
+}
+.social li a {
+    color: #939393;
+    font-size: 18px;
+}
+.social li a:hover {
+    color: #e96656;
+}
