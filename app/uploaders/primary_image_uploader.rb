@@ -22,8 +22,20 @@ class PrimaryImageUploader < CarrierWave::Uploader::Base
   # end
 
   version :web do
-    process resize_to_fill: [295, 90]
+    process resize_to_fill: [800, 600]
   end
+
+  # version :thumb, from_version: :web do
+  #   process resize_to_fill: [32, 32]
+  # end
+
+  # version :preview, from_version: :web do
+  #   process resize_to_fill: [128, 128]
+  # end
+
+  # version :full, from_version: :web do
+  #   process resize_to_fill: [1024, 768]
+  # end
 
   def extension_white_list
     %w(jpg jpeg gif png)
