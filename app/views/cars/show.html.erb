@@ -21,17 +21,19 @@
 						<li class="current">
 							<% if user_signed_in? %>
 								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-	                            <span class="clear"> 
-	                            	<span class="text-muted text-xs block">
-	                            	My Account
-	                            	<b class="caret">
-	                            	</b>
-	                            	</span> 
-	                            </span> 
-	                            </a>
-	                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-			                        <li><%= link_to 'Logout', destroy_user_session_path %></li>
-			                    </ul>
+              <span class="clear"> 
+              	<span class="text-muted text-xs block">
+              	My Account
+              	<b class="caret">
+              	</b>
+              	</span> 
+              </span> 
+              </a>
+              <ul class="dropdown-menu animated fadeInRight m-t-xs">
+	              <li>
+	              	<%= link_to 'Logout', destroy_user_session_path %>
+	              </li>
+          		</ul>
 							<% else %>
 								<%= link_to 'Sign In', new_user_session_path, style: "color: #20AA73; font-weight: bold;" %>
 							<% end %>
@@ -54,178 +56,174 @@
 			<div class="row">
 				<div class="col-lg-12" style="padding: 5px;">
 					<div class="ibox product-detail">
-                        <div class="ibox-content">
+            <div class="ibox-content">
 
-                            <div class="row">
-                                <div class="col-md-7" style="padding-right: 30px;">
-                                    <div class="car-images">
-                                    	<% if @car.car_images.exists? %>
-	                                    	<% @car.car_images.each do |image| %>
-		                                        <div class="image-imitation car-primary-image" style="background: url('<%= image.image.url(:web) %>');">
-		                                        </div>
-	                                        <% end %>
-	                                    <% else %>
-	                                    	<div class="image-imitation car-primary-image" style="background: url('<%= @car.primary_image.url(:web) %>');">
-		                                    </div>
-	                                    <% end %>
-		                            </div>
+                <div class="row">
+                    <div class="col-md-7" style="padding-right: 30px;">
+                        <div class="car-images">
+                        	<% if @car.car_images.exists? %>
+                          	<% @car.car_images.each do |image| %>
+                                <div class="image-imitation car-primary-image" style="background: url('<%= image.image.url(:web) %>');">
                                 </div>
-                                <div class="col-md-5" style="padding-left: 30px;">
-
-                                    <h2 class="font-bold m-b-xs">
-                                        <%= @car.car_brand.name %> <%= @car.car_model.name %>
-                                        <span class="pull-right text-warning" style="font-size: 18px;"><%= @car.reference_code %></span>
-                                    </h2>
-                                    <small>Posted: <%= @car.created_at.strftime("%d-%M-%Y") %></small>
-                                    <div class="m-t-md">
-                                        <h2 class="product-main-price">
-                                        	AED <%= number_with_precision(@car.price, :precision => 0, :delimiter => ',') %>
-                                        	<small class="text-muted">All in</small> 
-                                        </h2>
-                                    </div>
-                                    <hr>
-
-                                    <h4>Additional Details</h4>
-                                    <div class="row m-t-lg">
-	                                    <div class="col-md-4">
-	                                    		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
-	                                    			<i class="fa fa-tachometer fa-2x"></i> 	
-	                                    		</div>
-	                                        <div class="col-md-12" style="text-align: center;">
-	                                        	<h4>
-		                                        	<strong>
-		                                        		<%= number_with_precision(@car.mileage, :precision => 0, :delimiter => ',') %>
-		                                        	</strong> 
-		                                        		km
-		                                        </h4>
-	                                        </div>	                                        
-	                                    </div>
-
-	                                    <div class="col-md-4">
-	                                    		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
-	                                    			<i class="fa fa-taxi fa-2x"></i> 	
-	                                    		</div>
-	                                        <div class="col-md-12" style="text-align: center;">
-	                                        	<h4>
-		                                        	<strong>
-		                                        		<%= @car.car_color.name %>
-		                                        	</strong> 
-		                                        		Color
-		                                        </h4>
-	                                        </div>	                                        
-	                                    </div>
-
-	                                    <div class="col-md-4">
-	                                    		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
-	                                    			<i class="fa fa-calendar fa-2x"></i> 	
-	                                    		</div>
-	                                        <div class="col-md-12" style="text-align: center;">
-	                                        	<h4>
-		                                        	<strong>
-		                                        		<%= @car.year %>
-		                                        	</strong> 
-		                                        		Year
-		                                        </h4>
-	                                        </div>	                                        
-	                                    </div>
-	                                	</div>
-
-	                                	<div class="row m-t-lg">
-	                                		<div class="col-md-4">
-	                                    		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
-	                                    			<i class="fa fa-cog fa-2x"></i> 	
-	                                    		</div>
-	                                        <div class="col-md-12" style="text-align: center;">
-	                                        	<h4>
-		                                        	<strong>
-		                                        		<%= @car.fuel_type.name %>
-		                                        	</strong> 
-		                                        		Fuel
-		                                        </h4>
-	                                        </div>	                                        
-	                                    </div>
-
-	                                    <div class="col-md-4">
-	                                    		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
-	                                    			<i class="fa fa-cogs fa-2x"></i> 	
-	                                    		</div>
-	                                        <div class="col-md-12" style="text-align: center;">
-	                                        	<h4>
-		                                        	<strong>
-		                                        		<%= @car.engine %>
-		                                        	</strong> 
-		                                        		Engine
-		                                        </h4>
-	                                        </div>	                                        
-	                                    </div>
-
-	                                    <div class="col-md-4">
-	                                    		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
-	                                    			<i class="fa fa-bolt fa-2x"></i> 	
-	                                    		</div>
-	                                        <div class="col-md-12" style="text-align: center;">
-	                                        	<h4>
-		                                        	<strong>
-		                                        		<%= @car.power %>
-		                                        	</strong> 
-		                                        		Power
-		                                        </h4>
-	                                        </div>	                                        
-	                                    </div>
-
-	                                	</div>
-                                
-                                    <hr>
-
-                                    <div>
-                                        <div class="btn-group">
-                                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="modalQuot">
-                                            	<i class="fa fa-cart-plus"></i> 
-                                            	Request for a Quotation
-                                            </button>
-                                            <button class="btn btn-white btn-sm">
-                                            	<i class="fa fa-facebook"></i> 
-                                            	Share to Facebook
-                                            </button>                                            
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
+                              <% end %>
+                          <% else %>
+                          	<div class="image-imitation car-primary-image" style="background: url('<%= @car.primary_image.url(:web) %>');">
                             </div>
+                          <% end %>
+                    </div>
+                    </div>
+                    <div class="col-md-5" style="padding-left: 30px;">
 
+                        <h2 class="font-bold m-b-xs">
+                            <%= @car.car_brand.name %> <%= @car.car_model.name %>
+                            <span class="pull-right text-warning" style="font-size: 18px;"><%= @car.reference_code %></span>
+                        </h2>
+                        <small>Posted: <%= @car.created_at.strftime("%d-%M-%Y") %></small>
+                        <div class="m-t-md">
+                            <h2 class="product-main-price">
+                            	AED <%= number_with_precision(@car.price, :precision => 0, :delimiter => ',') %>
+                            	<small class="text-muted">All in</small> 
+                            </h2>
                         </div>
-                        <div class="ibox-footer">
-                            <span class="pull-right">
-                            	<i class="fa fa-trademark"></i>
-                            </span>
-                            Terms and Conditions Apply                            
+                        <hr>
+
+                        <h4>Additional Details</h4>
+                        <div class="row m-t-lg">
+                          <div class="col-md-4">
+                          		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
+                          			<i class="fa fa-tachometer fa-2x" style="color: #e96656;"></i> 	
+                          		</div>
+                              <div class="col-md-12" style="text-align: center;">
+                              	<h4>
+                                	<strong>
+                                		<%= number_with_precision(@car.mileage, :precision => 0, :delimiter => ',') %>
+                                	</strong> 
+                                		km
+                                </h4>
+                              </div>	                                        
+                          </div>
+
+                          <div class="col-md-4">
+                          		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
+                          			<i class="fa fa-taxi fa-2x"></i> 	
+                          		</div>
+                              <div class="col-md-12" style="text-align: center;">
+                              	<h4>
+                                	<strong>
+                                		<%= @car.car_color.name %>
+                                	</strong> 
+                                		Color
+                                </h4>
+                              </div>	                                        
+                          </div>
+
+                          <div class="col-md-4">
+                          		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
+                          			<i class="fa fa-calendar fa-2x" style="color: #ba9ef7;"></i> 	
+                          		</div>
+                              <div class="col-md-12" style="text-align: center;">
+                              	<h4>
+                                	<strong>
+                                		<%= @car.year %>
+                                	</strong> 
+                                		Year
+                                </h4>
+                              </div>	                                        
+                          </div>
+                      	</div>
+
+                      	<div class="row m-t-lg">
+                      		<div class="col-md-4">
+                          		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
+                          			<i class="fa fa-cog fa-2x" style="color: #20AA73;"></i> 	
+                          		</div>
+                              <div class="col-md-12" style="text-align: center;">
+                              	<h4>
+                                	<strong>
+                                		<%= @car.fuel_type.name %>
+                                	</strong> 
+                                		Fuel
+                                </h4>
+                              </div>	                                        
+                          </div>
+
+                          <div class="col-md-4">
+                          		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
+                          			<i class="fa fa-cogs fa-2x" style="color: #3ab0e2;"></i> 	
+                          		</div>
+                              <div class="col-md-12" style="text-align: center;">
+                              	<h4>
+                                	<strong>
+                                		<%= @car.engine %>
+                                	</strong> 
+                                		Engine
+                                </h4>
+                              </div>	                                        
+                          </div>
+
+                          <div class="col-md-4">
+                          		<div class="col-md-12 col-centered" style="margin-bottom: 10px; text-align: center;">
+                          			<i class="fa fa-bolt fa-2x" style="color: #E7AC44;"></i> 	
+                          		</div>
+                              <div class="col-md-12" style="text-align: center;">
+                              	<h4>
+                                	<strong>
+                                		<%= @car.power %>
+                                	</strong> 
+                                		Power
+                                </h4>
+                              </div>	                                        
+                          </div>
+
+                      	</div>
+                    
+                        <hr>
+
+                        <div>
+                            <div class="btn-group">
+                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="modalQuot">
+                                	<i class="fa fa-cart-plus"></i> 
+                                	Request for a Quotation
+                                </button>
+                                <button class="btn btn-white btn-sm">
+                                	<i class="fa fa-facebook"></i> 
+                                	Share to Facebook
+                                </button>                                            
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="ibox-footer">
+                <span class="pull-right">
+                	<i class="fa fa-trademark"></i>
+                </span>
+                Terms and Conditions Apply                            
+            </div>
+        </div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<div class="modal inmodal in" id="modalQuot" tabindex="-1" role="dialog" aria-hidden="true" style="display: none; padding-right: 17px;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content animated flipInY">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                                            <h4 class="modal-title">Modal title</h4>
-                                            <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                                printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                                                remaining essentially unchanged.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
+	  <div class="modal-dialog">
+	      <div class="modal-content animated flipInY">
+	          <div class="modal-header">
+	              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+	              <h4 class="modal-title">Modal title</h4>
+	              <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+	          </div>
+	          <div class="modal-body">
+	              <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+	                  printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+	                  remaining essentially unchanged.</p>
+	          </div>
+	          <div class="modal-footer">
+	              <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+	              <button type="button" class="btn btn-primary">Save changes</button>
+	          </div>
+	      </div>
+	  </div>
   </div>
 </div>
 
