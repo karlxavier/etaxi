@@ -1409,7 +1409,7 @@ width: -webkit-calc(100% / 2);
 	margin-bottom: 20px;
 }
 .contact-us .custom-button {
-	float: right;
+	/*float: right;*/
 }
 
 .success,
