@@ -502,7 +502,7 @@ input:focus {
 -----------------------------------------*/
 
 .focus {
-	padding-bottom: 100px;
+	padding-bottom: 0;
 	overflow: hidden;
 	background: #FFFFFF;
 }
@@ -775,7 +775,7 @@ width: -webkit-calc(100% / 2);
 .about-us {
 	background: #272727;
 	color: #FFF;
-	padding-bottom: 100px;
+	padding-bottom: 0;
 }
 .about-us .big-intro {
 	text-align: right;

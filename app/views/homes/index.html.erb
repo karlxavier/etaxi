@@ -23,8 +23,8 @@
 					<li class=""><a href="#team">Team</a></li>
 					<li class=""><a href="#testimonials">Testimonials</a></li>					
 					<li class=""><a href="#tour_guide">UAE Guide</a></li>
-					<li class=""><%= link_to 'Cars for SALE', cars_path %></li>
 					<li class=""><a href="#contact">Contact</a></li>
+					<li class=""><%= link_to 'Cars for SALE', cars_path, style: "font-weight: bold; color: #e96656;" %></li>					
 					<li class="">
 						<% if user_signed_in? %>
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -40,7 +40,7 @@
                   <li><%= link_to 'Logout', destroy_user_session_path %></li>
               	</ul>
 						<% else %>
-							<%= link_to 'Sign In', new_user_session_path, style: "color: #20AA73; font-weight: bold;" %>
+							<%= link_to 'Sign In', new_user_session_path, style: "color: #e96656; font-weight: bold;" %>
 						<% end %>
 					</li>
 				</ul>
@@ -210,6 +210,8 @@
 					</ul> 
 				</div> <!-- / END SKILLS COLUMN-->
 			</div> <!-- / END 3 COLUMNS OF ABOUT US-->
+
+
 		</div>
 	</section>
 	<section class="stats">
